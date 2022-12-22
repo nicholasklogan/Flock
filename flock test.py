@@ -104,8 +104,8 @@ class Bird():
                             elif z_dist < -max_safe_distance:
                                 self.zd += speed
 
-
-for i in range(0, 20):
+NUMBER_OF_BIRDS = 20
+for i in range(0, NUMBER_OF_BIRDS):
     Flock.append(Bird())
 
 while not done:
@@ -116,5 +116,5 @@ while not done:
             bird.run()
         screen.fill((0, 0, 0))
         for x, bird in enumerate(Flock):
-            pygame.draw.rect(screen, (x, 128, 255), pygame.Rect(bird.x , bird.y, 6, 6))
+            pygame.draw.rect(screen, (256/NUMBER_OF_BIRDS * x, 128, 255), pygame.Rect(bird.x , bird.y, 6, 6))
         pygame.display.flip()
