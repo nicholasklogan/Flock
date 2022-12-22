@@ -1,8 +1,9 @@
 import pygame
 import random
-
+WINDOW_WIDTH = 1000
+WINDOW_HEIGHT = 1000
 pygame.init()
-screen = pygame.display.set_mode((1000, 1000))
+screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 done = False
 clock = pygame.time.Clock()
 safe_distance = 10
@@ -50,8 +51,8 @@ class Bird():
 ##        self.z += self.zz
         if self.x <= 1:
             self.x = 1
-        self.x = self.x % 399
-        self.y = self.y % 299
+        self.x = self.x % WINDOW_WIDTH
+        self.y = self.y % WINDOW_HEIGHT
         self.xd = 0
         self.yd = 0
         self.zd = 0
