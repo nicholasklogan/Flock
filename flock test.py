@@ -2,6 +2,7 @@ import pygame
 import random
 WINDOW_WIDTH = 1000
 WINDOW_HEIGHT = 1000
+WINDOW_DEPTH = 100
 pygame.init()
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 done = False
@@ -16,7 +17,7 @@ class Bird():
     def __init__(self):
         self.x = random.randint(0, 1000)
         self.y = random.randint(0, 1000)
-        self.z = random.randint(-100, 100)
+        self.z = random.randint(0, WINDOW_DEPTH)
         self.xd = 0
         self.yd = 0
         self.zd = 0
@@ -53,6 +54,8 @@ class Bird():
             self.x = 1
         self.x = self.x % WINDOW_WIDTH
         self.y = self.y % WINDOW_HEIGHT
+        self.z = self.z % WINDOW_DEPTH
+
         self.xd = 0
         self.yd = 0
         self.zd = 0
@@ -113,5 +116,5 @@ while not done:
             bird.run()
         screen.fill((0, 0, 0))
         for x, bird in enumerate(Flock):
-            pygame.draw.rect(screen, (256/NUMBER_OF_BIRDS * x, 128, 255), pygame.Rect(bird.x , bird.y, 6, 6))
+            pygame.draw.rect(screen, (256/NUMBER_OF_BIRDS * x, 128, 255), pygame.Rect(bird.x, bird.y, bird.z/10, bird.z/10))
         pygame.display.flip()
