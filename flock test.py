@@ -87,21 +87,19 @@ class Bird():
                 x_dist = bird.x - self.x
                 y_dist = bird.y - self.y
                 z_dist = bird.z - self.z
-                if max_safe_distance < abs(x_dist):
-                    if max_safe_distance < abs(y_dist):
-##                        if max_safe_distance < abs(z_dist):
-                            if x_dist > max_safe_distance:
-                                self.xd += speed
-                            elif x_dist < -max_safe_distance:
-                                self.xd += -speed
-                            if y_dist > max_safe_distance:
-                                self.yd += speed
-                            elif y_dist < -max_safe_distance:
-                                self.yd += -speed
-                            if z_dist > max_safe_distance:
-                                self.zd += -speed
-                            elif z_dist < -max_safe_distance:
-                                self.zd += speed
+                if max_safe_distance < abs(x_dist) and max_safe_distance < abs(y_dist) and max_safe_distance < abs(z_dist):
+                    if x_dist > max_safe_distance:
+                        self.xd += speed
+                    elif x_dist < -max_safe_distance:
+                        self.xd += -speed
+                    if y_dist > max_safe_distance:
+                        self.yd += speed
+                    elif y_dist < -max_safe_distance:
+                        self.yd += -speed
+                    if z_dist > max_safe_distance:
+                        self.zd += -speed
+                    elif z_dist < -max_safe_distance:
+                        self.zd += speed
 
 NUMBER_OF_BIRDS = 20
 for i in range(0, NUMBER_OF_BIRDS):
