@@ -48,7 +48,7 @@ class Bird():
         
         self.x += self.xz
         self.y += self.yz
-##        self.z += self.zz
+        self.z += self.zz
         if self.x <= 1:
             self.x = 1
         self.x = self.x % WINDOW_WIDTH
@@ -64,22 +64,20 @@ class Bird():
                 x_dist = bird.x - self.x
                 y_dist = bird.y - self.y
                 z_dist = bird.z - self.z
-                if safe_distance > abs(x_dist):
-                    if safe_distance > abs(y_dist):
-##                        if safe_distance > abs(z_dist):
-                            if x_dist > safe_distance:
-                                self.xd += speed
-                            elif x_dist < -safe_distance:
-                                self.xd += -speed
-                            if y_dist > safe_distance:
-                                self.yd += speed
-                            elif y_dist < -safe_distance:
-                                self.yd += -speed
-                            if z_dist > safe_distance:
-                                self.zd += -speed
-                            elif z_dist < -safe_distance:
-                                self.zd += speed
-                            Hit = True
+                if safe_distance > abs(x_dist) and safe_distance > abs(y_dist) and safe_distance > abs(z_dist):
+                    if x_dist > safe_distance:
+                        self.xd += speed
+                    elif x_dist < -safe_distance:
+                        self.xd += -speed
+                    if y_dist > safe_distance:
+                        self.yd += speed
+                    elif y_dist < -safe_distance:
+                        self.yd += -speed
+                    if z_dist > safe_distance:
+                        self.zd += -speed
+                    elif z_dist < -safe_distance:
+                        self.zd += speed
+                    Hit = True
         return Hit
                 
 
